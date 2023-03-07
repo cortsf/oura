@@ -182,12 +182,65 @@ Data on a non-ADA asset in a UTXO.
 <hr />
 
 ### `VkeyWitness` Event
+
+| Name          | DataType | Description |
+| :---          | :---     | :---        |
+| vkey_hex      | String   |             |
+| signature_hex | String   |             |
+
 ### `NativeWitness` Event
+
+| Name        | DataType  | Description |
+| :---        | :---      | :---        |
+| policy_id   | String    |             |
+| script_json | JsonValue |             |
+
 ### `PlutusWitness` Event
+
+| Name        | DataType | Description |
+| :---        | :---     | :---        |
+| script_hash | String   |             |
+| script_hex  | String   |             |
+
 ### `PlutusRedeemer` Event
+
+| Name           | DataType  | Description |
+| :---           | :---      | :---        |
+| purpose        | String    |             |
+| ex_units_mem   | u32       |             |
+| ex_units_steps | u64       |             |
+| input_idx      | u32       |             |
+| plutus_data    | JsonValue |             |
+
 ### `PlutusDatum` Event
+
+| Name        | DataType  | Description |
+| :---        | :---      | :---        |
+| datum_hash  | String    |             |
+| plutus_data | JsonValue |             |
+
 ### `CIP25Asset` Event
+
+| Name        | DataType        | Description |
+| :---        | :---            | :---        |
+| version     | String          |             |
+| policy      | String          |             |
+| asset       | String          |             |
+| name        | Option\<String> |             |
+| image       | Option\<String> |             |
+| media_type  | Option\<String> |             |
+| description | Option\<String> |             |
+| raw_json    | JsonValue       |             |
+
 ### `CIP15Asset` Event
+
+| Name           | DataType  | Description |
+| :---           | :---      | :---        |
+| voting_key     | String    |             |
+| stake_pub      | String    |             |
+| reward_address | String    |             |
+| nonce          | i64       |             |
+| raw_json       | JsonValue |             |
 
 ### `Mint` Event
 
@@ -243,13 +296,17 @@ Data on [collateral inputs](https://docs.cardano.org/plutus/collateral-mechanism
 
 ### `NativeScript` Event
 
+| Name      | DataType  | Description |
+| :---      | :---      | :---        |
+| policy_id | String    |             |
+| script    | JsonValue |             |
+
 ### `PlutusScript` Event
 
-### `PlutusScriptRef` Event
-
-| Name         | DataType        | Description                           |
-| :---         | :---            | :---                                  |
-| data         | String          | ....                                  |
+| Name | DataType | Description |
+| :--- | :---     | :---        |
+| hash | String   | ....        |
+| data | String   | ....        |
 
 **Context**
 

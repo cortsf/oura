@@ -30,19 +30,35 @@ argument = <predicate argument>
 
 ## Available Predicates
 
-- `variant_in (string[])`: This predicate will yield true when the variant of the event matches any of the items in the argument array.
-- `variant_not_in (string[])`: This predicate will yield true when the variant of the event doesn't match any of the items in the argument array.
-- `policy_equals (string)`: This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
-- `asset_equals (string)`: This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
-- `metadata_label_equals (string)`: This predicate will yield true when the root label of a metadata entry matches the value in the argument.
-- `metadata_any_sub_label_equals (string)`: This predicate will yield true when _at least one_ of the sub labels in a metadata entry matches the value in the argument.
-- `not (predicate)`: This predicate will yield true when the predicate in the arguments yields false.
-- `any_of (predicate[])`: This predicate will yield true when _any_ of the predicates in the argument yields true.
-- `all_of (predicate[])`: This predicate will yield true when _all_ of the predicates in the argument yields true.
+### `variant_in (string[])`
+ This predicate will yield true when the variant of the event matches any of the items in the argument array. Available variants:
+- [Block](../reference/data_dictionary.md#block-event)
+- [Transaction](../reference/data_dictionary.md#transaction-event)
+- [TxInput](../reference/data_dictionary.md#txinput-event)
+- [TxOutput](../reference/data_dictionary.md#txoutput-event)
+- [OutputAsset](../reference/data_dictionary.md#outputasset-event)
+- [Metadata](../reference/data_dictionary.md#metadata-event)
+- [VKeyWitness](../reference/data_dictionary.md#vkeywitness-event)
+- [NativeWitness](../reference/data_dictionary.md#nativewitness-event)
+- [PlutusWitness](../reference/data_dictionary.md#plutuswitness-event)
+- [PlutusRedeemer](../reference/data_dictionary.md#plutusredeemer-event)
+- [PlutusDatum](../reference/data_dictionary.md#plutusdatum-event)
+- [CIP25Asset](../reference/data_dictionary.md#cip25asset-event)
+- [CIP15Asset](../reference/data_dictionary.md#cip15asset-event)
+- [Mint](../reference/data_dictionary.md#mint-event)
+- [Collateral](../reference/data_dictionary.md#collateral-event)
+- [NativeScript](../reference/data_dictionary.md#nativescript-event)
+- [PlutusScript](../reference/data_dictionary.md#plutusscriptref-event)
+- [StakeRegistration](../reference/data_dictionary.md#stakeregistration-event)
+- [StakeDeregistration](../reference/data_dictionary.md#stakederegistration-event)
+- [StakeDelegation](../reference/data_dictionary.md#stakedelegation-event)
+- [PoolRegistration](../reference/data_dictionary.md#poolregistration-event)
+- [PoolRetirement](../reference/data_dictionary.md#poolretirement-event)
+- [GenesisKeyDelegation](../reference/data_dictionary.md#genesiskeydelegation-event)
+- [MoveInstantaneousRewardsCert](../reference/data_dictionary.md#moveinstantaneousrewardscert-event)
+- [RollBack](../reference/data_dictionary.md#rollback-event)
 
-## Examples
-
-Allowing only block and transaction events to pass:
+**Example** - Allowing only block and transaction events to pass:
 
 ```toml
 [[filters]]
@@ -53,7 +69,71 @@ predicate = "variant_in"
 argument = ["Block", "Transaction"]
 ```
 
-Using the `not` predicate to allow all events except the variant `Transaction`:
+### `variant_not_in (string[])`
+ This predicate will yield true when the variant of the event doesn't match any of the items in the argument array.
+
+**Example** - Allowing all event except transaction to pass:
+```toml
+[[filters]]
+type = "Selection"
+
+[filters.check]
+predicate = "variant_not_in"
+argument = ["Transaction"]
+```
+
+### `policy_equals (string)`
+ This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
+
+event variants: `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
+
+**Example** - Allowing metadata events where the policy_id == `<policy_id>`
+```toml
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["CIP25Asset"]
+
+[[filters.check.argument]]
+predicate = "policy_equals"
+argument = "<policy_id>"
+```
+
+### `asset_equals (string)`
+ This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
+
+**Example** - Allowing metadata events where where token name == `<asset>`
+```toml
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["CIP25Asset"]
+
+[[filters.check.argument]]
+predicate = "asset_equals"
+argument = "<asset>"
+```
+
+### `metadata_label_equals (string)`
+ This predicate will yield true when the root label of a metadata entry matches the value in the argument.
+
+**Example** - Allowing metadata events where where label == `<label>`
+```toml
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["CIP25Asset"]
+
+[[filters.check.argument]]
+predicate = "metadata_label_equals"
+argument = "<label>"
+```
+
+### `metadata_any_sub_label_equals (string)`
+ This predicate will yield true when _at least one_ of the sub labels in a metadata entry matches the value in the argument.
+
+### `not (predicate)`
+ This predicate will yield true when the predicate in the arguments yields false.
+
+
+**Example** - Using the `not` predicate to allow all events except the variant `Transaction`:
 
 ```toml
 [[filters]]
@@ -67,7 +147,11 @@ predicate = "variant_in"
 argument = ["Transaction"]
 ```
 
-Using the `any_of` predicate to filter events presenting any of two different policies (Boolean "or"):
+### `any_of (predicate[])`
+ This predicate will yield true when _any_ of the predicates in the argument yields true.
+
+
+**Example** - Using the `any_of` predicate to filter events presenting any of two different policies (Boolean "or"):
 
 ```toml
 [filters.check]
@@ -82,7 +166,10 @@ predicate = "policy_equals"
 argument = "a5bb0e5bb275a573d744a021f9b3bff73595468e002755b447e01559"
 ```
 
-Using the `all_of` predicate to filter only "asset" events presenting a particular policy (Boolean "and") :
+### `all_of (predicate[])`
+ This predicate will yield true when _all_ of the predicates in the argument yields true.
+
+**Example** - Using the `all_of` predicate to filter only "asset" events presenting a particular policy (Boolean "and") :
 
 ```toml
 [filters.check]

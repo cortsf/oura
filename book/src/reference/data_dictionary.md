@@ -188,6 +188,15 @@ Data on a non-ADA asset in a UTXO.
 | vkey_hex      | String   |             |
 | signature_hex | String   |             |
 
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
+
 ### `NativeWitness` Event
 
 | Name        | DataType  | Description |
@@ -195,12 +204,30 @@ Data on a non-ADA asset in a UTXO.
 | policy_id   | String    |             |
 | script_json | JsonValue |             |
 
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
+
 ### `PlutusWitness` Event
 
 | Name        | DataType | Description |
 | :---        | :---     | :---        |
 | script_hash | String   |             |
 | script_hex  | String   |             |
+
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
 
 ### `PlutusRedeemer` Event
 
@@ -212,12 +239,30 @@ Data on a non-ADA asset in a UTXO.
 | input_idx      | u32       |             |
 | plutus_data    | JsonValue |             |
 
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
+
 ### `PlutusDatum` Event
 
 | Name        | DataType  | Description |
 | :---        | :---      | :---        |
 | datum_hash  | String    |             |
 | plutus_data | JsonValue |             |
+
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
 
 ### `CIP25Asset` Event
 
@@ -232,6 +277,15 @@ Data on a non-ADA asset in a UTXO.
 | description | Option\<String> |             |
 | raw_json    | JsonValue       |             |
 
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
+
 ### `CIP15Asset` Event
 
 | Name           | DataType  | Description |
@@ -241,6 +295,15 @@ Data on a non-ADA asset in a UTXO.
 | reward_address | String    |             |
 | nonce          | i64       |             |
 | raw_json       | JsonValue |             |
+
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
 
 ### `Mint` Event
 
@@ -300,6 +363,15 @@ Data on [collateral inputs](https://docs.cardano.org/plutus/collateral-mechanism
 | :---      | :---      | :---        |
 | policy_id | String    |             |
 | script    | JsonValue |             |
+
+**Context**
+
+| Name         | DataType        | Description                   |
+| :---         | :---            | :---                          |
+
+<br />
+<br />
+<hr />
 
 ### `PlutusScript` Event
 

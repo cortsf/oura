@@ -192,6 +192,10 @@ Data on a non-ADA asset in a UTXO.
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />
@@ -208,6 +212,10 @@ Data on a non-ADA asset in a UTXO.
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />
@@ -224,6 +232,10 @@ Data on a non-ADA asset in a UTXO.
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />
@@ -243,6 +255,10 @@ Data on a non-ADA asset in a UTXO.
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />
@@ -259,6 +275,10 @@ Data on a non-ADA asset in a UTXO.
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />
@@ -281,6 +301,10 @@ Data on a non-ADA asset in a UTXO.
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />
@@ -300,6 +324,10 @@ Data on a non-ADA asset in a UTXO.
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />
@@ -368,6 +396,10 @@ Data on [collateral inputs](https://docs.cardano.org/plutus/collateral-mechanism
 
 | Name         | DataType        | Description                   |
 | :---         | :---            | :---                          |
+| block_number | Option\<u64>    | Height of block from genesis. |
+| block_hash   | Option\<String> |                               |
+| slot         | Option\<u64>    | Current slot.                 |
+| timestamp    | Option\<u64>    |                               |
 
 <br />
 <br />

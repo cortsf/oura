@@ -12,10 +12,10 @@ The following list represent the already implemented events. These data structur
 
 Data on chain rollback(The result of the local node switching to the consensus chains).
 
-| Name         | DataType   | Description                    |
-| :---         | :---       | :---                           |
-| block_slot   | u64        | Slot of the rolled back block. |
-| block_hash   | Option\<String>     | Hash of the rolled back block. |
+| Name       | DataType        | Description                    |
+| :---       | :---            | :---                           |
+| block_slot | u64             | Slot of the rolled back block. |
+| block_hash | Option\<String> | Hash of the rolled back block. |
 
 
 <br />
@@ -27,10 +27,10 @@ Data on chain rollback(The result of the local node switching to the consensus c
 
 Data on an issued block.
 
-| Name         | DataType   | Description                           |
-| :---         | :---       | :---                                  |
-| body_size    | usize      | Size of the block.                    |
-| issuer_vkey  | String     | Block issuer Public verification key. |
+| Name        | DataType | Description                           |
+| :---        | :---     | :---                                  |
+| body_size   | usize    | Size of the block.                    |
+| issuer_vkey | String   | Block issuer Public verification key. |
 
 **Context**
 
@@ -51,9 +51,9 @@ Data on an issued block.
 
 Data on a transaction.
 
-| Name                    | DataType    | Description                            |
-| :---                    | :---        | :---                                   |
-| fee                     | u64         | Transaction fees in lovelace.          |
+| Name                    | DataType     | Description                            |
+| :---                    | :---         | :---                                   |
+| fee                     | u64          | Transaction fees in lovelace.          |
 | ttl                     | Option\<u64> | Transaction time to live.              |
 | validity_interval_start | Option\<u64> | Start of transaction validity interval |
 | network_id              | Option\<u32> | Network ID.                            |
@@ -79,10 +79,10 @@ Data on a transaction.
 
 Data on a transaction input.
 
-| Name         | DataType     | Description                           |
-| :---         | :---         | :---                                  |
-| tx_id        | String       | Transaction ID.                       |
-| index        | u64          | Index of input in transaction inputs. |
+| Name  | DataType | Description                           |
+| :---  | :---     | :---                                  |
+| tx_id | String   | Transaction ID.                       |
+| index | u64      | Index of input in transaction inputs. |
 
 **Context**
 
@@ -106,10 +106,10 @@ Data on a transaction input.
 
 Data on a transaction output (UTXO).
 
-| Name         | DataType     | Description                           |
-| :---         | :---         | :---                                  |
-| address      | String       | Address of UTXO.                      |
-| amount       | u64          | Amount of lovelace in UTXO.           |
+| Name    | DataType | Description                 |
+| :---    | :---     | :---                        |
+| address | String   | Address of UTXO.            |
+| amount  | u64      | Amount of lovelace in UTXO. |
 
 **Context**
 
@@ -133,11 +133,11 @@ Data on a transaction output (UTXO).
 
 Data on a non-ADA asset in a UTXO.
 
-| Name         | DataType     | Description                           |
-| :---         | :---         | :---                                  |
-| policy       | String       | Minting policy of asset.              |
-| asset        | String       | Asset ID.                             |
-| amount       | u64          | Amount of asset.                      |
+| Name   | DataType | Description              |
+| :---   | :---     | :---                     |
+| policy | String   | Minting policy of asset. |
+| asset  | String   | Asset ID.                |
+| amount | u64      | Amount of asset.         |
 
 **Context**
 
@@ -159,11 +159,11 @@ Data on a non-ADA asset in a UTXO.
 
 ### `Metadata` Event
 
-| Name         | DataType        | Description                           |
-| :---         | :---            | :---                                  |
-| key          | String          | ....                                  |
-| subkey       | Option\<String> | ....                                  |
-| value        | Option\<String> | ....                                  |
+| Name   | DataType        | Description |
+| :---   | :---            | :---        |
+| key    | String          | ....        |
+| subkey | Option\<String> | ....        |
+| value  | Option\<String> | ....        |
 
 **Context**
 
@@ -349,11 +349,11 @@ Data on a non-ADA asset in a UTXO.
 
 Data on the minting of a non-ADA asset.
 
-| Name         | DataType     | Description                           |
-| :---         | :---         | :---                                  |
-| policy       | String       | Minting policy of asset.              |
-| asset        | String       | Asset ID.                             |
-| quantity     | i64          | Quantity of asset minted.             |
+| Name     | DataType | Description               |
+| :---     | :---     | :---                      |
+| policy   | String   | Minting policy of asset.  |
+| asset    | String   | Asset ID.                 |
+| quantity | i64      | Quantity of asset minted. |
 
 **Context**
 
@@ -376,10 +376,10 @@ Data on the minting of a non-ADA asset.
 
 Data on [collateral inputs](https://docs.cardano.org/plutus/collateral-mechanism).
 
-| Name         | DataType        | Description                           |
-| :---         | :---            | :---                                  |
-| tx_id        | String          | Transaction ID.                       |
-| index        | u64             | Index of transaction input in inputs. |
+| Name  | DataType | Description                           |
+| :---  | :---     | :---                                  |
+| tx_id | String   | Transaction ID.                       |
+| index | u64      | Index of transaction input in inputs. |
 
 **Context**
 
@@ -445,21 +445,21 @@ Data on [collateral inputs](https://docs.cardano.org/plutus/collateral-mechanism
 
 Data on stake registration event.
 
-| Name         | DataType        | Description                           |
-| :---         | :---            | :---                                  |
-| credential   | [StakeCredential](https://docs.rs/oura/1.4.1/oura/model/enum.StakeCredential.html) | Staking credentials.                 |
+| Name       | DataType                                                                           | Description          |
+| :---       | :---                                                                               | :---                 |
+| credential | [StakeCredential](https://docs.rs/oura/1.4.1/oura/model/enum.StakeCredential.html) | Staking credentials. |
 
 **Context**
 
-| Name         | DataType        | Description                   |
-| :---         | :---            | :---                          |
-| block_number | Option\<u64>    | Height of block from genesis. |
-| block_hash   | Option\<String> |                               |
-| slot         | Option\<u64>    | Current slot.                 |
-| timestamp    | Option\<u64>    |                               |
-| tx_idx       | Option\<usize>  | Transaction Index.            |
-| tx_hash      | Option\<String> | Transaction hash.             |
-| certificate_idx      | Option\<usize> |              |
+| Name            | DataType        | Description                   |
+| :---            | :---            | :---                          |
+| block_number    | Option\<u64>    | Height of block from genesis. |
+| block_hash      | Option\<String> |                               |
+| slot            | Option\<u64>    | Current slot.                 |
+| timestamp       | Option\<u64>    |                               |
+| tx_idx          | Option\<usize>  | Transaction Index.            |
+| tx_hash         | Option\<String> | Transaction hash.             |
+| certificate_idx | Option\<usize>  |                               |
 
 
 <br />
@@ -471,21 +471,21 @@ Data on stake registration event.
 
 Data on stake deregistration event.
 
-| Name         | DataType        | Description                           |
-| :---         | :---            | :---                                  |
-| credential   | [StakeCredential](https://docs.rs/oura/1.4.1/oura/model/enum.StakeCredential.html) | Staking credentials.                 |
+| Name       | DataType                                                                           | Description          |
+| :---       | :---                                                                               | :---                 |
+| credential | [StakeCredential](https://docs.rs/oura/1.4.1/oura/model/enum.StakeCredential.html) | Staking credentials. |
 
 **Context**
 
-| Name         | DataType        | Description                   |
-| :---         | :---            | :---                          |
-| block_number | Option\<u64>    | Height of block from genesis. |
-| block_hash   | Option\<String> |                               |
-| slot         | Option\<u64>    | Current slot.                 |
-| timestamp    | Option\<u64>    |                               |
-| tx_idx       | Option\<usize>  | Transaction Index.            |
-| tx_hash      | Option\<String> | Transaction hash.             |
-| certificate_idx      | Option\<usize> |              |
+| Name            | DataType        | Description                   |
+| :---            | :---            | :---                          |
+| block_number    | Option\<u64>    | Height of block from genesis. |
+| block_hash      | Option\<String> |                               |
+| slot            | Option\<u64>    | Current slot.                 |
+| timestamp       | Option\<u64>    |                               |
+| tx_idx          | Option\<usize>  | Transaction Index.            |
+| tx_hash         | Option\<String> | Transaction hash.             |
+| certificate_idx | Option\<usize>  |                               |
 
 
 <br />
@@ -497,22 +497,22 @@ Data on stake deregistration event.
 
 Data on [stake delegation](https://docs.cardano.org/core-concepts/delegation) event.
 
-| Name         | DataType        | Description                           |
-| :---         | :---            | :---                                  |
-| credential   | [StakeCredential](https://docs.rs/oura/1.4.1/oura/model/enum.StakeCredential.html) | Stake credentials.                    |
-| pool_hash    | String          | Hash of stake pool ID.                |
+| Name       | DataType                                                                           | Description            |
+| :---       | :---                                                                               | :---                   |
+| credential | [StakeCredential](https://docs.rs/oura/1.4.1/oura/model/enum.StakeCredential.html) | Stake credentials.     |
+| pool_hash  | String                                                                             | Hash of stake pool ID. |
 
 **Context**
 
-| Name         | DataType        | Description                   |
-| :---         | :---            | :---                          |
-| block_number | Option\<u64>    | Height of block from genesis. |
-| block_hash   | Option\<String> |                               |
-| slot         | Option\<u64>    | Current slot.                 |
-| timestamp    | Option\<u64>    |                               |
-| tx_idx       | Option\<usize>  | Transaction Index.            |
-| tx_hash      | Option\<String> | Transaction hash.             |
-| certificate_idx      | Option\<usize> |              |
+| Name            | DataType        | Description                   |
+| :---            | :---            | :---                          |
+| block_number    | Option\<u64>    | Height of block from genesis. |
+| block_hash      | Option\<String> |                               |
+| slot            | Option\<u64>    | Current slot.                 |
+| timestamp       | Option\<u64>    |                               |
+| tx_idx          | Option\<usize>  | Transaction Index.            |
+| tx_hash         | Option\<String> | Transaction hash.             |
+| certificate_idx | Option\<usize>  |                               |
 
 
 <br />
@@ -524,29 +524,29 @@ Data on [stake delegation](https://docs.cardano.org/core-concepts/delegation) ev
 
 Data on the stake [registration event](https://developers.cardano.org/docs/stake-pool-course/handbook/register-stake-pool-metadata/).
 
-| Name           | DataType        | Description                            |
-| :---           | :---            | :---                                   |
-| operator       | String          | Stake pool operator ID.                |
-| vrf_keyhash    | String          | Kehash of node VRF operational key.    |
-| pledge         | u64             | Stake pool pledge (lovelace).          |
-| cost           | u64             | Operational costs per epoch (lovelace).|
-| margin         | f64             | Operator margin.                       |
-| reward_account | String          | Account to receive stake pool rewards. |
-| pool_owners    | Vec\<String>    | Stake pool owners.                     |
-| relays         | Vec\<String>    | ....                                   |
-| pool_metadata  | Option\<String> | ....                                   |
+| Name           | DataType        | Description                             |
+| :---           | :---            | :---                                    |
+| operator       | String          | Stake pool operator ID.                 |
+| vrf_keyhash    | String          | Kehash of node VRF operational key.     |
+| pledge         | u64             | Stake pool pledge (lovelace).           |
+| cost           | u64             | Operational costs per epoch (lovelace). |
+| margin         | f64             | Operator margin.                        |
+| reward_account | String          | Account to receive stake pool rewards.  |
+| pool_owners    | Vec\<String>    | Stake pool owners.                      |
+| relays         | Vec\<String>    | ....                                    |
+| pool_metadata  | Option\<String> | ....                                    |
 
 **Context**
 
-| Name         | DataType        | Description                   |
-| :---         | :---            | :---                          |
-| block_number | Option\<u64>    | Height of block from genesis. |
-| block_hash   | Option\<String> |                               |
-| slot         | Option\<u64>    | Current slot.                 |
-| timestamp    | Option\<u64>    |                               |
-| tx_idx       | Option\<usize>  | Transaction Index.            |
-| tx_hash      | Option\<String> | Transaction hash.             |
-| certificate_idx      | Option\<usize> |              |
+| Name            | DataType        | Description                   |
+| :---            | :---            | :---                          |
+| block_number    | Option\<u64>    | Height of block from genesis. |
+| block_hash      | Option\<String> |                               |
+| slot            | Option\<u64>    | Current slot.                 |
+| timestamp       | Option\<u64>    |                               |
+| tx_idx          | Option\<usize>  | Transaction Index.            |
+| tx_hash         | Option\<String> | Transaction hash.             |
+| certificate_idx | Option\<usize>  |                               |
 
 
 <br />
@@ -558,22 +558,22 @@ Data on the stake [registration event](https://developers.cardano.org/docs/stake
 
 Data on [stake pool retirement](https://cardano-foundation.gitbook.io/stake-pool-course/stake-pool-guide/stake-pool/retire_stakepool) event.
 
-| Name         | DataType        | Description                           |
-| :---         | :---            | :---                                  |
-| pool         | String          | Pool ID.                              |
-| epoch        | u64             | Current epoch.                        |
+| Name  | DataType | Description    |
+| :---  | :---     | :---           |
+| pool  | String   | Pool ID.       |
+| epoch | u64      | Current epoch. |
 
 **Context**
 
-| Name         | DataType        | Description                   |
-| :---         | :---            | :---                          |
-| block_number | Option\<u64>    | Height of block from genesis. |
-| block_hash   | Option\<String> |                               |
-| slot         | Option\<u64>    | Current slot.                 |
-| timestamp    | Option\<u64>    |                               |
-| tx_idx       | Option\<usize>  | Transaction Index.            |
-| tx_hash      | Option\<String> | Transaction hash.             |
-| certificate_idx      | Option\<usize> |              |
+| Name            | DataType        | Description                   |
+| :---            | :---            | :---                          |
+| block_number    | Option\<u64>    | Height of block from genesis. |
+| block_hash      | Option\<String> |                               |
+| slot            | Option\<u64>    | Current slot.                 |
+| timestamp       | Option\<u64>    |                               |
+| tx_idx          | Option\<usize>  | Transaction Index.            |
+| tx_hash         | Option\<String> | Transaction hash.             |
+| certificate_idx | Option\<usize>  |                               |
 
 
 <br />
@@ -604,12 +604,12 @@ Data on genesis key delegation.
 
 ### `MoveInstantaneousRewardsCert` Event
 
-| Name                 | DataType                                | Description                           |
-| :---                 | :---                                    | :---                                  |
-| from_reserves        | bool                                    | ....                                  |
-| from_treasury        | bool                                    | ....                                  |
-| to_stake_credentials | Option\<BTreeMap<StakeCredential, i64>> | ....                                  |
-| to_other_pot         | Option\<u64>                            | ....                                  |
+| Name                 | DataType                                | Description |
+| :---                 | :---                                    | :---        |
+| from_reserves        | bool                                    | ....        |
+| from_treasury        | bool                                    | ....        |
+| to_stake_credentials | Option\<BTreeMap<StakeCredential, i64>> | ....        |
+| to_other_pot         | Option\<u64>                            | ....        |
 
 **Context**
 

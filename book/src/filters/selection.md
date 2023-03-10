@@ -183,3 +183,48 @@ argument = ["OutputAsset"]
 predicate = "policy_equals"
 argument = "a5bb0e5bb275a573d744a021f9b3bff73595468e002755b447e01559"
 ```
+
+## Nested filters example
+
+Example using nested filters. Use `toml2json ./oura.toml | jq` to visualize the structure as json.
+
+```toml
+[[filters]]
+type = "Selection"
+
+[filters.check]
+predicate = "any_of"
+
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["RollBack"]
+
+[[filters.check.argument]]
+predicate = "all_of"
+
+[[filters.check.argument.argument]]
+predicate = "variant_in"
+argument = ["CIP25Asset"]
+
+[[filters.check.argument.argument]]
+predicate = "any_of"
+
+[[filters.check.argument.argument.argument]]
+predicate = "policy_equals"
+argument = "<policy_a>"
+
+[[filters.check.argument.argument.argument]]
+predicate = "policy_equals"
+argument = "<policy_b>"
+
+[[filters.check.argument]]
+predicate = "all_of"
+
+[[filters.check.argument.argument]]
+predicate = "variant_in"
+argument = ["Transaction"]
+
+[[filters.check.argument.argument]]
+predicate = "v_key_witnesses_includes"
+argument = "<vkey>"
+```

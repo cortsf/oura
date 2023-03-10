@@ -184,7 +184,7 @@ predicate = "policy_equals"
 argument = "a5bb0e5bb275a573d744a021f9b3bff73595468e002755b447e01559"
 ```
 
-## Nested filters example
+## Real world example
 
 Example using nested filters. Use `toml2json ./oura.toml | jq` to visualize the structure as json.
 

@@ -72,7 +72,7 @@ argument = ["Block", "Transaction"]
 ### `variant_not_in (string[])`
  This predicate will yield true when the variant of the event doesn't match any of the items in the argument array.
 
-**Example** - Allowing all event except transaction to pass:
+**Example** - Allowing all events except transaction to pass:
 ```toml
 [[filters]]
 type = "Selection"
@@ -85,9 +85,10 @@ argument = ["Transaction"]
 ### `policy_equals (string)`
  This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
 
-event variants: `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
 
-**Example** - Allowing metadata events where the policy_id == `<policy_id>`
+**Available with:** `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
+
+**Example** - Allowing `CIP25Asset` events where policy_id == `<policy_id>`
 ```toml
 [[filters.check.argument]]
 predicate = "variant_in"
@@ -99,9 +100,11 @@ argument = "<policy_id>"
 ```
 
 ### `asset_equals (string)`
- This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
+ This predicate will yield true when the asset (token name) of a mint or output asset matches the value in the argument.
 
-**Example** - Allowing metadata events where where token name == `<asset>`
+**Available with:** `CIP25Asset`
+
+**Example** - Allowing `CIP25Asset` events where where token name == `<asset>`
 ```toml
 [[filters.check.argument]]
 predicate = "variant_in"
@@ -114,6 +117,8 @@ argument = "<asset>"
 
 ### `metadata_label_equals (string)`
  This predicate will yield true when the root label of a metadata entry matches the value in the argument.
+
+**Available with:**
 
 **Example** - Allowing metadata events where where label == `<label>`
 ```toml
@@ -129,10 +134,18 @@ argument = "<label>"
 ### `metadata_any_sub_label_equals (string)`
  This predicate will yield true when _at least one_ of the sub labels in a metadata entry matches the value in the argument.
 
+**Available with:** `Metadata`?
+
+**Example** - 
+
+```toml
+```
+
 ### `not (predicate)`
  This predicate will yield true when the predicate in the arguments yields false.
 
 
+**Available with:** all
 **Example** - Using the `not` predicate to allow all events except the variant `Transaction`:
 
 ```toml

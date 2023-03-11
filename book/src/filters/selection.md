@@ -182,13 +182,13 @@ argument = "<asset>"
 ### `metadata_label_equals (string)`
  This predicate will yield true when the root label of a metadata entry matches the value in the argument.
 
-**Variants:**
+**Variants:** `Metadata`, `Transaction`
 
 **Example** - Allowing metadata events where where label == `<label>`
 ```toml
 [[filters.check.argument]]
 predicate = "variant_in"
-argument = ["CIP25Asset"]
+argument = ["Metadata"]
 
 [[filters.check.argument]]
 predicate = "metadata_label_equals"
@@ -203,6 +203,10 @@ argument = "<label>"
 **Example**
 
 ```toml
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["Metadata"]
+
 [filters.check]
 predicate = "metadata_any_sub_label_equals"
 argument = "<label>"

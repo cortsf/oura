@@ -1,3 +1,7 @@
+### Table of contents
+- [Available predicates](#available-predicates)
+- [Variant-restricted predicates](#variant-restricted-predicates)
+- [Real world example](#real-world-example)
 # Selection Filter
 
 A filter that evaluates a set of configurable predicates against each event in the pipeline to decide which records should be sent to the following stage.
@@ -82,65 +86,6 @@ predicate = "variant_not_in"
 argument = ["Transaction"]
 ```
 
-### `policy_equals (string)`
- This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
-
-
-**Available with:** `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
-
-**Example** - Allowing `CIP25Asset` events where policy_id == `<policy_id>`
-```toml
-[[filters.check.argument]]
-predicate = "variant_in"
-argument = ["CIP25Asset"]
-
-[[filters.check.argument]]
-predicate = "policy_equals"
-argument = "<policy_id>"
-```
-
-### `asset_equals (string)`
- This predicate will yield true when the asset (token name) of a mint or output asset matches the value in the argument.
-
-**Available with:** `CIP25Asset`
-
-**Example** - Allowing `CIP25Asset` events where where token name == `<asset>`
-```toml
-[[filters.check.argument]]
-predicate = "variant_in"
-argument = ["CIP25Asset"]
-
-[[filters.check.argument]]
-predicate = "asset_equals"
-argument = "<asset>"
-```
-
-### `metadata_label_equals (string)`
- This predicate will yield true when the root label of a metadata entry matches the value in the argument.
-
-**Available with:**
-
-**Example** - Allowing metadata events where where label == `<label>`
-```toml
-[[filters.check.argument]]
-predicate = "variant_in"
-argument = ["CIP25Asset"]
-
-[[filters.check.argument]]
-predicate = "metadata_label_equals"
-argument = "<label>"
-```
-
-### `metadata_any_sub_label_equals (string)`
- This predicate will yield true when _at least one_ of the sub labels in a metadata entry matches the value in the argument.
-
-**Available with:** `Metadata`?
-
-**Example** - 
-
-```toml
-```
-
 ### `not (predicate)`
  This predicate will yield true when the predicate in the arguments yields false.
 
@@ -194,6 +139,77 @@ argument = ["OutputAsset"]
 [[filters.check.argument]]
 predicate = "policy_equals"
 argument = "a5bb0e5bb275a573d744a021f9b3bff73595468e002755b447e01559"
+```
+
+## Variant-restricted Predicates
+
+
+### `policy_equals (string)`
+ This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
+
+
+**Available for variants:** `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
+
+**Example** - Allowing `CIP25Asset` events where policy_id == `<policy_id>`
+```toml
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["CIP25Asset"]
+
+[[filters.check.argument]]
+predicate = "policy_equals"
+argument = "<policy_id>"
+```
+
+### `asset_equals (string)`
+ This predicate will yield true when the asset (token name) of a mint or output asset matches the value in the argument.
+
+**Available for variants:** `CIP25Asset`
+
+**Example** - Allowing `CIP25Asset` events where where token name == `<asset>`
+```toml
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["CIP25Asset"]
+
+[[filters.check.argument]]
+predicate = "asset_equals"
+argument = "<asset>"
+```
+
+### `metadata_label_equals (string)`
+ This predicate will yield true when the root label of a metadata entry matches the value in the argument.
+
+**Available for variants:**
+
+**Example** - Allowing metadata events where where label == `<label>`
+```toml
+[[filters.check.argument]]
+predicate = "variant_in"
+argument = ["CIP25Asset"]
+
+[[filters.check.argument]]
+predicate = "metadata_label_equals"
+argument = "<label>"
+```
+
+### `metadata_any_sub_label_equals (string)`
+ This predicate will yield true when _at least one_ of the sub labels in a metadata entry matches the value in the argument.
+
+**Available for variants:** `Metadata`?
+
+**Example** - 
+
+```toml
+```
+
+### `v_key_witnesses_includes (string)`
+
+**Example** -
+``` toml
+[[filters.check.argument.argument]]
+predicate = "v_key_witnesses_includes"
+argument = "<vkey>"
 ```
 
 ## Real world example

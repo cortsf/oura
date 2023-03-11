@@ -1,5 +1,5 @@
 ### Table of contents
-- [Available predicates](#available-predicates)
+- [General predicates](#general-predicates)
 - [Variant-restricted predicates](#variant-restricted-predicates)
 - [Real world example](#real-world-example)
 # Selection Filter
@@ -32,7 +32,8 @@ argument = <predicate argument>
 - `predicate`: the key of the predicate to use for the evaluation. See the list of available predicates for possible values.
 - `argument`: a polimorphic argument that specializes the behavior of the predicate in some way.
 
-## Available Predicates
+## General Predicates
+Predicates available for events of any type.
 
 ### `variant_in (string[])`
  This predicate will yield true when the variant of the event matches any of the items in the argument array. Available variants:
@@ -142,13 +143,14 @@ argument = "a5bb0e5bb275a573d744a021f9b3bff73595468e002755b447e01559"
 ```
 
 ## Variant-restricted Predicates
+Predicates operating on a subset of event variants.
 
 
 ### `policy_equals (string)`
  This predicate will yield true when the policy of a mint or output asset matches the value in the argument.
 
 
-**Available for variants:** `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
+**Variants:** `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
 
 **Example** - Allowing `CIP25Asset` events where policy_id == `<policy_id>`
 ```toml
@@ -164,7 +166,7 @@ argument = "<policy_id>"
 ### `asset_equals (string)`
  This predicate will yield true when the asset (token name) of a mint or output asset matches the value in the argument.
 
-**Available for variants:** `CIP25Asset`
+**Variants:** `CIP25Asset`
 
 **Example** - Allowing `CIP25Asset` events where where token name == `<asset>`
 ```toml
@@ -180,7 +182,7 @@ argument = "<asset>"
 ### `metadata_label_equals (string)`
  This predicate will yield true when the root label of a metadata entry matches the value in the argument.
 
-**Available for variants:**
+**Variants:**
 
 **Example** - Allowing metadata events where where label == `<label>`
 ```toml
@@ -196,7 +198,7 @@ argument = "<label>"
 ### `metadata_any_sub_label_equals (string)`
  This predicate will yield true when _at least one_ of the sub labels in a metadata entry matches the value in the argument.
 
-**Available for variants:** `Metadata`?
+**Variants:** `Metadata`?
 
 **Example** - 
 

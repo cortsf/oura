@@ -142,7 +142,7 @@ predicate = "policy_equals"
 argument = "a5bb0e5bb275a573d744a021f9b3bff73595468e002755b447e01559"
 ```
 
-## Variant-restricted Predicates
+## Variant-restricted predicates
 Predicates operating on a subset of event variants.
 
 
@@ -196,20 +196,23 @@ argument = "<label>"
 ```
 
 ### `metadata_any_sub_label_equals (string)`
- This predicate will yield true when _at least one_ of the sub labels in a metadata entry matches the value in the argument.
+ This predicate will yield true when _at least one_ of the sub labels (keys in the json map) of a metadata entry matches the value in the argument.
 
-**Variants:** `Metadata`?
+**Variants:** `Metadata`
 
-**Example** - 
+**Example**
 
 ```toml
+[filters.check]
+predicate = "metadata_any_sub_label_equals"
+argument = "<label>"
 ```
 
 ### `v_key_witnesses_includes (string)`
 
 **Example** -
 ``` toml
-[[filters.check.argument.argument]]
+[[filters.check.argument]]
 predicate = "v_key_witnesses_includes"
 argument = "<vkey>"
 ```

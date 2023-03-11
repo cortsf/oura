@@ -166,9 +166,9 @@ argument = "<policy_id>"
 ### `asset_equals (string)`
  This predicate will yield true when the asset (token name) of a mint or output asset matches the value in the argument.
 
-**Variants:** `CIP25Asset`
+**Variants:** `CIP25Asset`, `Transaction`, `OutputAsset`, `Mint`
 
-**Example** - Allowing `CIP25Asset` events where where token name == `<asset>`
+**Example**
 ```toml
 [[filters.check.argument]]
 predicate = "variant_in"
@@ -184,7 +184,7 @@ argument = "<asset>"
 
 **Variants:** `Metadata`, `Transaction`
 
-**Example** - Allowing metadata events where where label == `<label>`
+**Example**
 ```toml
 [[filters.check.argument]]
 predicate = "variant_in"
@@ -214,7 +214,9 @@ argument = "<label>"
 
 ### `v_key_witnesses_includes (string)`
 
-**Example** -
+**Variants:** `VKeyWitness`, `Transaction`
+
+**Example**
 ``` toml
 [[filters.check.argument]]
 predicate = "v_key_witnesses_includes"

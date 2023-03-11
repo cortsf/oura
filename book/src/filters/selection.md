@@ -145,7 +145,6 @@ argument = "<label>"
  This predicate will yield true when the predicate in the arguments yields false.
 
 
-**Available with:** all
 **Example** - Using the `not` predicate to allow all events except the variant `Transaction`:
 
 ```toml

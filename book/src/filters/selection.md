@@ -1,9 +1,9 @@
 ### Table of contents
-- [Selection Filter](#selection-filter)
+- [Selection filter](#selection-filter)
 - [General predicates](#general-predicates)
 - [Variant-restricted predicates](#variant-restricted-predicates)
 - [Real world example](#real-world-example)
-# Selection Filter
+# Selection filter
 
 A filter that evaluates a set of configurable predicates against each event in the pipeline to decide which records should be sent to the following stage.
 
@@ -33,7 +33,7 @@ argument = <predicate argument>
 - `predicate`: the key of the predicate to use for the evaluation. See the list of available predicates for possible values.
 - `argument`: a polimorphic argument that specializes the behavior of the predicate in some way.
 
-## General Predicates
+## General predicates
 Predicates available for events of any type.
 
 ### `variant_in (string[])`

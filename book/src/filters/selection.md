@@ -210,11 +210,16 @@ argument = "<label>"
 ```
 
 ### `v_key_witnesses_includes (string)`
+This predicate will yield true when at least one of the vkeys matches the value in the argument. This filter needs `include_transaction_details = true` to work.
+
 
 **Variants:** `VKeyWitness`, `Transaction`
 
 **Example**
 ``` toml
+[source.mapper]
+include_transaction_details = true
+
 [[filters]]
 type = "Selection"
 

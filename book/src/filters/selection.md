@@ -152,13 +152,12 @@ Predicates operating on a subset of event variants.
 
 **Variants:** `Transaction`, `Mint`, `CIP25Asset`, `OutputAsset`
 
-**Example** - Allowing `CIP25Asset` events where policy_id == `<policy_id>`
+**Example**
 ```toml
-[[filters.check.argument]]
-predicate = "variant_in"
-argument = ["CIP25Asset"]
+[[filters]]
+type = "Selection"
 
-[[filters.check.argument]]
+[filters.check]
 predicate = "policy_equals"
 argument = "<policy_id>"
 ```
@@ -170,11 +169,10 @@ argument = "<policy_id>"
 
 **Example**
 ```toml
-[[filters.check.argument]]
-predicate = "variant_in"
-argument = ["CIP25Asset"]
+[[filters]]
+type = "Selection"
 
-[[filters.check.argument]]
+[filters.check]
 predicate = "asset_equals"
 argument = "<asset>"
 ```
@@ -186,11 +184,10 @@ argument = "<asset>"
 
 **Example**
 ```toml
-[[filters.check.argument]]
-predicate = "variant_in"
-argument = ["Metadata"]
+[[filters]]
+type = "Selection"
 
-[[filters.check.argument]]
+[filters.check]
 predicate = "metadata_label_equals"
 argument = "<label>"
 ```
@@ -203,9 +200,8 @@ argument = "<label>"
 **Example**
 
 ```toml
-[[filters.check.argument]]
-predicate = "variant_in"
-argument = ["Metadata"]
+[[filters]]
+type = "Selection"
 
 [filters.check]
 predicate = "metadata_any_sub_label_equals"
@@ -218,7 +214,10 @@ argument = "<label>"
 
 **Example**
 ``` toml
-[[filters.check.argument]]
+[[filters]]
+type = "Selection"
+
+[filters.check]
 predicate = "v_key_witnesses_includes"
 argument = "<vkey>"
 ```

@@ -1,4 +1,5 @@
 ### Table of contents
+- [Selection Filter](#selection-filter)
 - [General predicates](#general-predicates)
 - [Variant-restricted predicates](#variant-restricted-predicates)
 - [Real world example](#real-world-example)
